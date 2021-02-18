@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title>T34-Bootstrap Ex1</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/codigo.js"></script>
+        <script src="ajax/ajax_get.js"></script>
+        <!-- Librerías Bootsrap -->
+            <!-- CSS only -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+            <!-- JavaScript Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <!-- Librerías JQUERY -->
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2"></div>
+                <div id="callButtons" class="col-8">
+                    <h1>REST COUNTRIES</h1>
+                    <p>
+                        <h5>Get information about countries via a RESTful API</h5>
+                    </p>
+                    <table class="table table-striped align-middle">
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mostrar Todo</td>
+                            <td>
+                                <button type="button" id="botonGetAll" class="btn btn-light">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                    </svg>
+                                </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Name</td>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="text" id="inputGetName" class="form-control" placeholder="{name}" aria-label="" aria-describedby="button-addon2">
+                                    <button type="button" id="botonGetName" class="btn btn-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Name Full Text</td>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="text" id="inputGetNameFull" class="form-control" placeholder="{name}" aria-label="" aria-describedby="button-addon2">
+                                    <button type="button" id="botonGetNameFull" class="btn btn-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Alpha</td>
+                            <td>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="inputGetAlpha" placeholder="{code}" aria-label="" aria-describedby="button-addon2">
+                                    <button type="button" id="botonGetAlpha" class="btn btn-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Alpha Codes</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetAlphaCodes1" placeholder="{code}" aria-label="" aria-describedby="button-addon2">
+                                        <input type="text" class="form-control" id="inputGetAlphaCodes2" placeholder="{code}" aria-label="" aria-describedby="button-addon2">
+                                        <input type="text" class="form-control" id="inputGetAlphaCodes3" placeholder="{code}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetAlphaCodes" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Currency</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetCurrency" placeholder="{currency}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetCurrency" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>Language</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetLang" placeholder="{et}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetLang" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>Capital</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetCapital" placeholder="{capital}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetCapital" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>Calling Code</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetCallCode" placeholder="{callingcode}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetCallCode" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td>Region</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetRegion" placeholder="{region}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetRegion" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11</th>
+                                <td>Regional Bloc</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetRegionalBloc" placeholder="{regionalbloc}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetRegionalBloc" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12</th>
+                                <td>Service</td>
+                                <td>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="inputGetService" placeholder="{service}" aria-label="" aria-describedby="button-addon2">
+                                        <input type="text" class="form-control" id="inputGetServiceField1" placeholder="{field}" aria-label="" aria-describedby="button-addon2">
+                                        <input type="text" class="form-control" id="inputGetServiceField2" placeholder="{field}" aria-label="" aria-describedby="button-addon2">
+                                        <input type="text" class="form-control" id="inputGetServiceField3" placeholder="{field}" aria-label="" aria-describedby="button-addon2">
+                                        <button type="button" id="botonGetService" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div id="contenido" class="col">
+                    <!-- DIV PARA EL JSON DE LA CONSILTA-->    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
